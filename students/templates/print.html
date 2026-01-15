@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Print</title>
+</head>
+<body style="margin:0;">
+
+    <h1 style="text-align:center;">Fatura per printim</h1>
+
+    <ul>
+        {% for item in items %}
+        <li>
+            {{ item.product.name }}
+            - {{ item.product.price }} leke
+            x {{ item.quantity }}
+            = <b>{{ item.subtotal }} leke</b>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h3>Total: <b>{{ total }} leke</b></h3>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+{% block title %}Footballer Check{% endblock %}
+{% block content %}
+
+<h1>Kontrolli i lojtareve sipas kombesise</h1>
+
+{% for info in teams_info %}
+  <h2>{{ info.team.name }} ({{ info.team.nationality }})</h2>
+  <p>
+    Lojtare te huaj: {{ info.length_foreign_players }}<br>
+    {% if info.status == 'jeshile' %}
+      Status: 🟢 4 ose me pak lojtare te huaj
+    {% else %}
+      Status: 🔴 Me shume se 4 lojtare te huaj
+    {% endif %}
+  </p>
+
+  <h4>Lojtaret me kombesi te njejte:</h4>
+  {% if info.same_nationality %}
+    <ul>
+      {% for f in info.same_nationality %}
+        <li>{{ f.first_name }} {{ f.last_name }} - {{ f.position }} ({{ f.nationality }})</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Asnje lojtar me kombesi te njejte.</p>
+  {% endif %}
+  <hr>
+{% endfor %}
+
+{% endblock %}

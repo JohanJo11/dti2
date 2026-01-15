@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu</title>
+</head>
+<body style="margin:0;">
+
+    <h1 style="text-align:center;">Menu</h1>
+
+    <!-- LEFT SIDE: PRODUCTS -->
+    <div style="width:70%; float:left;">
+        <div style="display:grid; grid-template-columns: repeat(3, 150px); gap:15px; justify-content:center;">
+
+            {% for p in products %}
+            <form method="POST" action="{% url 'add_to_cart' %}">
+                {% csrf_token %}
+                <input type="hidden" name="product_id" value="{{ p.id }}">
+                <button style="padding:20px; font-size:18px; border-radius:10px; width:150px; cursor:pointer;">
+                    {{ p.name }} <br>
+                    <small>{{ p.price }} dollars</small>
+                </button>
+            </form>
+            {% endfor %}
+
+        </div>
+
+        <div style="text-align:center; margin-top:20px;">
+            <a href="{% url 'cart' %}">
+                <button style="padding:15px 30px; font-size:18px;">
+                    <b>Look at the bill!</b>
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE: PREVIEW BILL -->
+    <div style="width:30%; float:left;">
+        <h2>Advance Invoice</h2>
+
+        <ul>
+            {% for item in items %}
+            <li>
+                {{ item.product.name }}
+                - {{ item.product.price }} dollars
+                x {{ item.quantity }}
+                = <b>{{ item.subtotal }} dollars</b>
+
+                <a href="{% url 'remove' item.product.id %}"
+                   style="color:red; margin-left:15px;">
+                   Remove
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h3>Total: <b>{{ total }} dollars</b></h3>
+
+        <form method="POST" action="{% url 'confirm' %}">
+            {% csrf_token %}
+            <button style="padding:10px 20px;">Confirm</button>
+        </form>
+    </div>
+
+</body>
+</html>

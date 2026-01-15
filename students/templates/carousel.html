@@ -1,0 +1,126 @@
+{% extends "main-football.html" %}
+{% load static %}
+
+{% block title %} 4-3-3 G.O.A.T LINEUP {% endblock title %}
+{% block content %}
+
+<div id="carouselExample" class="carousel carousel-dark slide mt-5" data-bs-ride="carousel">
+
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+
+    <!-- Manuel Neur -->
+    <div class="carousel-item active">
+      <img src="{% static 'images/neur.jpg' %}" class="d-block w-100 carousel-img" alt="GK">
+      <div class="carousel-caption d-block text-center static-caption">
+        <h5>Manuel Neur - GK</h5>
+        <p>🌍 World Cup champion (2014) & 🏆 multiple-time Bundesliga and Champions League winner with Bayern Munich, redefining goalkeeping forever. 🚀</p>
+      </div>
+    </div>
+
+    <!-- Roberto Carlos -->
+    <div class="carousel-item">
+      <img src="{% static 'images/roberto-carlos.jpeg'%}" class="d-block w-100 carousel-img" alt="LB">
+      <div class="carousel-caption d-block text-center static-caption">
+        <h5>Roberto Carlos - LB</h5>
+        <p>🏆 World Cup champion (2002) & multiple-time Champions League winner with Real Madrid, a true legend of the game. 🌪️</p>
+      </div>
+    </div>
+
+    <!-- Paolo Maldini -->
+    <div class="carousel-item">
+      <img src="{% static 'images/paolo-maldini.jpg'%}" class="d-block w-100 carousel-img" alt="CB">
+      <div class="carousel-caption d-block text-center static-caption">
+        <h5>Paolo Maldini - CB</h5>
+        <p>Legendary defender and AC Milan icon! 🇮🇹🏆 5-time Champions League winner & Serie A legend⚡</p>
+      </div>
+    </div>
+
+    <!-- Fabio Cannavaro -->
+    <div class="carousel-item">
+      <img src="{% static 'images/cannavaro.webp'%}" class="d-block w-100 carousel-img" alt="CB">
+      <div class="carousel-caption d-block text-center static-caption">
+        <h5>Fabio Cannavaro - CB</h5>
+        <p>🏆 2006 World Cup winner, Ballon d’Or 2006 & multiple-time Serie A champion⚡</p>
+      </div>
+    </div>
+
+    <!-- Dani Alves -->
+    <div class="carousel-item">
+      <img src="{% static 'images/alves.jpg'%}" class="d-block w-100 carousel-img" alt="RB">
+      <div class="carousel-caption d-block text-center static-caption">
+        <h5>Dani Alves - RB</h5>
+        <p>🏆 Winner of 40+ titles including the Champions League, Copa América & multiple league trophies🔥</p>
+      </div>
+    </div>
+
+    <!-- Andrés Iniesta -->
+    <div class="carousel-item">
+      <img src="{% static 'images/andres_iniesta.webp'%}" class="d-block w-100 carousel-img" alt="LCM">
+      <div class="carousel-caption d-block text-center static-caption">
+        <h5>Andrés Iniesta - CM</h5>
+        <p>Maestro of the midfield! 🇪🇸🏆 World Cup (2010) & 2× Champions League winner with Barcelona, famous for his vision, dribbling, and clutch goals⚡</p>
+      </div>
+    </div>
+
+    <!-- Zinedine Zidane -->
+    <div class="carousel-item">
+      <img src="{% static 'images/zidane.jpg'%}" class="d-block w-100 carousel-img" alt="CAM">
+      <div class="carousel-caption d-block text-center static-caption">
+        <h5>Zinedine Zidane - CAM</h5>
+        <p>Iconic attacking midfielder and football genius! 🇫🇷🏆 World Cup (1998), European Championship (2000) & multiple-time Champions League winner✨</p>
+      </div>
+    </div>
+
+    <!-- Xavi Hernandez -->
+    <div class="carousel-item">
+      <img src="{% static 'images/xavi.webp'%}" class="d-block w-100 carousel-img" alt="RCM">
+      <div class="carousel-caption d-block text-center static-caption">
+        <h5>Xavi Hernandez - CM</h5>
+        <p>Midfield maestro and Barcelona legend! 🇪🇸🏆 2× Champions League winner & World Cup (2010) champion with Spain⚡</p>
+      </div>
+    </div>
+
+    <!-- Cristiano Ronaldo -->
+    <div class="carousel-item">
+      <img src="{% static 'images/cr7.jpg'%}" class="d-block w-100 carousel-img" alt="LW">
+      <div class="carousel-caption d-block text-center static-caption">
+        <h5>Cristiano Ronaldo - LW</h5>
+        <p>The greatest forward of all time and football’s ultimate goal machine! 🇵🇹🏆 5× Champions League winner, European Champion (2016), multiple domestic league titles & 5× Ballon d’Or winner, all-time top scorer in football history with 950+ goals💪</p>
+      </div>
+    </div>
+
+    <!-- Luis Suárez -->
+    <div class="carousel-item">
+      <img src="{% static 'images/suarez.jpg'%}" class="d-block w-100 carousel-img" alt="ST">
+      <div class="carousel-caption d-block text-center static-caption">
+        <h5>Luis Suárez - ST</h5>
+        <p>Goal machine! 🇺🇾🏆 Champions League winner & multiple domestic league titles, one of the top scorers in modern football⚡🔥</p>
+      </div>
+    </div>
+
+    <!-- Lionel Messi -->
+    <div class="carousel-item">
+      <img src="{% static 'images/messi.webp'%}" class="d-block w-100 carousel-img" alt="RW">
+      <div class="carousel-caption d-block text-center static-caption">
+        <h5>Lionel Messi - RW</h5>
+        <p>The GOAT of football and magician on the pitch! 🇦🇷🏆 2022 World Cup winner, 4× Champions League winner, Copa América (2021) & 8× Ballon d’Or winner, all-time top scorer for club and country with 880+ goals and 390+ assists</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+
+</div>
+
+{% endblock content %}

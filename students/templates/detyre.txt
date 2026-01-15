@@ -1,0 +1,3 @@
+Vendosi nje kombesi dhe ekipit pasi te keni ndertuar klasen Nationality
+Shfaqni per cdo ekip lojtaret qe kane te njejten kombesi me ekipin.
+Ndertoni nje faqe qe per cdo ekip kontrollon nese ka me shume se 4 lojtare te huaj. Nese jo shfaqni me jeshile nese po me te kuqe

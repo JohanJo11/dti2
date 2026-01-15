@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+{% block title %} Student Page {% endblock title %}
+
+{% block content %}
+<h1 class="page-title">Students Details</h1>
+
+<div class="table-container">
+  <table id="studentTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Emri</th>
+        <th>Mbiemri</th>
+        <th>Mosha</th>
+        <th>Nr Tel</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for student in students %}
+      <tr>
+        <td>{{ student.id }}</td>
+        <td>{{ student.first_name }}</td>
+        <td>{{ student.last_name }}</td>
+        <td>{{ student.age }}</td>
+        <td>{{ student.phone_number }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends "main-football.html" %}
+{% load static %}
+
+{% block title %} BARCELONA {% endblock title %}
+{% block content %}
+
+<div id="carouselExample" class="carousel carousel-dark slide mt-5" data-bs-ride="carousel">
+
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    {% for footballer in footballers %}
+
+    <!-- Players -->
+    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+      <img src="{% static 'images/' %}{{ footballer.image_name }}" class="d-block w-100 carousel-img" alt="{{ footballer.first_name }}}">
+      <div class="carousel-caption d-block text-center static-caption">
+        <h5>{{ footballer.first_name }} {{ footballer.last_name }}</h5>
+        <p>Team: {{ footballer.team }}</p>
+        <p>Position: {{ footballer.position }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+
+</div>
+
+{% endblock content %}
