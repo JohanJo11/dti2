@@ -1,41 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Cart</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Cart{% endblock %}
 
-    <h2>Advance Invoice</h2>
+{% block content %}
 
-    <ul>
-        {% for item in items %}
-        <li>
-            {{ item.product.name }}
-            - {{ item.product.price }} dollars
-            x {{ item.quantity }}
-            = <b>{{ item.subtotal }} dollars</b>
+<h1 class="page-title">Your Cart</h1>
 
-            <a href="{% url 'remove' item.product.id %}"
-               style="color:red; margin-left:15px;">
-               Remove
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
+<div class="cart-box">
+    {% for item in items %}
+    <div class="cart-item">
+        <span>{{ item.product.name }} × {{ item.quantity }}</span>
+        <b>${{ item.subtotal }}</b>
 
-    <h3>Total: <b>{{ total }} dollars</b></h3>
+        <a href="{% url 'remove' item.product.id %}" class="remove">✖</a>
+    </div>
+    {% endfor %}
+
+    <h2>Total: ${{ total }}</h2>
 
     <form method="POST" action="{% url 'confirm' %}">
         {% csrf_token %}
-        <button style="padding:10px 20px;">Confirm</button>
+        <button class="btn">Confirm Order</button>
     </form>
+</div>
 
-    <form method="POST" action="{% url 'clear' %}">
-        {% csrf_token %}
-        <button style="padding:10px 20px; margin-top:10px;">
-            Go back
-        </button>
-    </form>
-
-</body>
-</html>
+{% endblock %}

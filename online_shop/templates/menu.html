@@ -1,65 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Menu</title>
-</head>
-<body style="margin:0;">
+{% extends 'base.html' %}
+{% block title %}Menu{% endblock %}
 
-    <h1 style="text-align:center;">Menu</h1>
+{% block content %}
 
-    <!-- LEFT SIDE: PRODUCTS -->
-    <div style="width:70%; float:left;">
-        <div style="display:grid; grid-template-columns: repeat(3, 150px); gap:15px; justify-content:center;">
+<h1 class="page-title">Menu</h1>
 
-            {% for p in products %}
+<div class="shop-layout">
+
+    <!-- PRODUCTS -->
+    <div class="products-grid">
+        {% for p in products %}
+        <div class="product-card">
+
+            {% if p.image %}
+                <img src="{{ p.image.url }}" alt="{{ p.name }}" class="product-img">
+            {% endif %}
+
+            <h3>{{ p.name }}</h3>
+            <p class="price">${{ p.price }}</p>
+
             <form method="POST" action="{% url 'add_to_cart' %}">
                 {% csrf_token %}
                 <input type="hidden" name="product_id" value="{{ p.id }}">
-                <button style="padding:20px; font-size:18px; border-radius:10px; width:150px; cursor:pointer;">
-                    {{ p.name }} <br>
-                    <small>{{ p.price }} dollars</small>
-                </button>
+                <button class="btn">Add to cart</button>
             </form>
-            {% endfor %}
 
         </div>
-
-        <div style="text-align:center; margin-top:20px;">
-            <a href="{% url 'cart' %}">
-                <button style="padding:15px 30px; font-size:18px;">
-                    <b>Look at the bill!</b>
-                </button>
-            </a>
-        </div>
+        {% endfor %}
     </div>
 
-    <!-- RIGHT SIDE: PREVIEW BILL -->
-    <div style="width:30%; float:left;">
-        <h2>Advance Invoice</h2>
+    <!-- CART PREVIEW -->
+    <div class="cart-preview">
+        <h2>Invoice</h2>
 
-        <ul>
-            {% for item in items %}
-            <li>
-                {{ item.product.name }}
-                - {{ item.product.price }} dollars
-                x {{ item.quantity }}
-                = <b>{{ item.subtotal }} dollars</b>
+        {% for item in items %}
+        <p>
+            {{ item.product.name }} × {{ item.quantity }}
+            <b>${{ item.subtotal }}</b>
+        </p>
+        {% empty %}
+        <p>No items yet</p>
+        {% endfor %}
 
-                <a href="{% url 'remove' item.product.id %}"
-                   style="color:red; margin-left:15px;">
-                   Remove
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
+        <h3>Total: ${{ total }}</h3>
 
-        <h3>Total: <b>{{ total }} dollars</b></h3>
-
-        <form method="POST" action="{% url 'confirm' %}">
-            {% csrf_token %}
-            <button style="padding:10px 20px;">Confirm</button>
-        </form>
+        <a href="{% url 'cart' %}" class="btn secondary">
+            View cart
+        </a>
     </div>
 
-</body>
-</html>
+</div>
+
+{% endblock %}
